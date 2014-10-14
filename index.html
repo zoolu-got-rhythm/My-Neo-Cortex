@@ -1,0 +1,1268 @@
+<!doctype html>
+
+<html>
+  
+  <head>
+  <title> Christopher P.K. Morris </title>
+    <link rel="stylesheet" type="text/css" href="styling12.css" />
+	<script src="bioscript.js"> </script> <!--external script link-->
+
+    <!-- <link rel="stylesheet" type="text/css" href="bootstrap-3.2.0-dist/css/bootstrap.css" /> -->
+   
+
+  </head>
+  
+  
+  <body onload="initiate(400,200,0); alter(0); indicate(); contentScript(0); gen1(); gen2();">
+    
+    
+	
+	<!-- <div id="userBox"> Desktop V.1 </div> -->
+		<!-- <div id="userBoxDrop"> </div> -->
+		
+		
+	
+	
+	<div id="container">
+	
+	
+		<h1 class="center">MY-NEO CORTEX</h1>
+	    <p class="center"> A GENERATIVE CODER </p> 
+	 
+	 
+	 
+	    <canvas height="100" width="300"  id="brainWave2"> </canvas>
+        <canvas height="100" width="300"  id="brainWave"> </canvas>
+		
+		<canvas height="250" width="300" id="generator1"> </canvas>
+        <canvas height="250" width="300" id="generator2"> </canvas>
+      
+	
+	
+	<ul> 
+	
+	     <li id="hyperLink1" onmouseover="initiate(176,41); alter(1); indicate();" onmouseout="reset();" onclick="contentScript(1);" title="Activate"> BIO </li>
+	 <li id="hyperLink2" onmouseover="initiate(165,120); alter(2); indicate();" onmouseout="reset();" onclick="contentScript(2);" title="Activate"> PHILOSOPHY </li>
+     	 <li id="hyperLink3" onmouseover="initiate(179,197); alter(3); indicate();" onmouseout="reset();" onclick="contentScript(3);" title="Activate"> SKILLS </li>
+	 <li id="hyperLink4" onmouseover="initiate(629,39); alter(4); indicate();" onmouseout="reset();" onclick="contentScript(4);" title="Activate"> TASTE </li>
+	 	 <li id="hyperLink5" onmouseover="initiate(640,118); alter(5); indicate();" onmouseout="reset();" onclick="contentScript(5);" title="Activate"> ARCHIVE </li>
+	 <li id="hyperLink6" onmouseover="initiate(621,197); alter(6); indicate();" onmouseout="reset();" onclick="contentScript(6);" title="Activate"> CONTACT </li>
+	 
+	</ul>
+	
+	
+	 <!-- onclick='var destroy = true;' -->
+	
+        <canvas id="playground" width="800px" height="300px">
+        </canvas>
+		
+	    <div id="squareContainer"> <!--visual display of incrementation--> </div>
+	  
+		<div id="speechSwitch"> <!-- speech generation script --> </div> 
+		
+		<div id="roll-out">
+		 
+		<!--script will spawn the client side content here, this is where the bug undefined is spawning --> 
+		
+		</div>
+		
+		
+		
+		
+		
+        <canvas id="face" width="700px" height="650px">
+        </canvas>
+	
+	<!-- <div id="clear"> </div> -->
+	</div>
+   
+    
+     <script> 
+	 
+	//document.getElementById('hyperLink1').toUpperCase(); 
+	
+	//alert("Welcome, there are x entries as of" +""+new Date().getHours()+stop);
+	var COUNT = []; 
+	
+ var SHIFT = 300;	
+	
+ var SCALE = 250; 
+ 
+ var SLIDE = 150; 
+ 
+var stop;  //keep this stop var in global scope, then over-ride it inside different functions. should write global variables using caps in future for good punctuation. 
+
+var initiate = function(linkCo1, linkCo2, z){ //the button that triggers the program
+
+ stop = false; 
+
+ //global scope , change the location of these global vars
+  var i=0; 
+  
+var c1 = []; //c is short for collect
+var c2 = [];
+var c3 = [];
+var c4 = [];
+var c5 = [];
+var c6 = [];
+
+
+  var timer = setInterval(function(){clock()},90); //copy this block for ref.
+  
+
+ function clock(){
+  
+
+   
+  i+=1; 
+  
+  COUNT.push(i); 
+   
+   var a = Math.round(Math.random()*200); 
+   var b = Math.round(Math.random()*250); 
+   var c = Math.round(Math.random()*200); 
+   var d = Math.round(Math.random()*250); 
+   var e = Math.round(Math.random()*200); 
+   var f = Math.round(Math.random()*250); 
+   c1.push(a); 
+   c2.push(b);
+   c3.push(c);
+   c4.push(d);
+   c5.push(e);
+   c6.push(f);
+   
+ // document.write(i);
+ 
+ 
+ 
+ 
+ 	var c = document.getElementById("playground");
+var ctx = c.getContext("2d"); 
+
+   ctx.beginPath(); 
+   //ctx.moveTo(c3[i-2], c4[i-2]);
+   //ctx.bezierCurveTo(c1[i-2],c2[i-2],c5[i-2],c6[i-2],c3[i-1], c4[i-1]);
+  
+   
+   
+   if(i===2){   
+    ctx.lineWidth = 1;
+   ctx.moveTo(100+SHIFT, 250);
+   ctx.lineTo(100+SHIFT,200); 
+   ctx.bezierCurveTo(c1[i-2]+SHIFT,c2[i-2],c5[i-2]+SHIFT,c6[i-2],c3[i-1]+SHIFT, c4[i-1]);
+   }
+   
+     if(i===3){
+	   ctx.lineWidth = 1;
+      ctx.moveTo(c3[i-2]+SHIFT, c4[i-2]);
+   ctx.bezierCurveTo(c1[i-2]+SHIFT,c2[i-2],c5[i-2]+SHIFT,c6[i-2],c3[i-1]+SHIFT, c4[i-1]);
+    }
+   
+   	if(i===4){
+	  ctx.lineWidth = 1;
+	 ctx.moveTo(c3[i-2]+SHIFT, c4[i-2]);
+	//ctx.lineTo(2,2); 
+	ctx.bezierCurveTo(c1[i-2]+SHIFT,c2[i-2],c5[i-2]+SHIFT,c6[i-2],linkCo1,linkCo2);
+	
+	}
+	
+	
+	
+ 
+	
+
+   
+   
+   
+   
+   
+   if(a<250){
+      ctx.strokeStyle="#CA7CE6";   
+   }
+   else if(a<250){
+      
+     ctx.strokeStyle="#FF70DB";
+   }
+   else{
+      ctx.strokeStyle="#FF3388";
+     
+   }
+     
+   
+  
+   ctx.stroke(); 
+       
+   //document.getElementById("userBox").innerHTML=stop+"<p>state.</p>";
+   //document.getElementById("userBox").innerHTML=COUNT.length+"<p>Thoughts.</p>";   
+   
+
+   
+  if(i===4){
+   clearInterval(timer);//to clearInterval must be using a global scoped variable.
+   
+  }
+    if(stop===true){
+    //alert("15 reached");
+    clearInterval(timer);//to clearInterval must be using a global scoped variable.
+	 document.getElementById('playground').getContext('2d').clearRect(0, 0, 700, 750);
+   //return; 
+  }
+   
+ }; //end of clock
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+//setInterval(clock,150);
+  var targetFace = document.getElementById("face");
+  var face = targetFace.getContext("2d");
+  
+  
+  var faceTimer = setInterval(function(){faceAnim()},50); //copy this block for ref. global scoped.
+ 
+
+
+ 
+ 
+  function faceAnim(){
+  
+ 
+    
+     face.beginPath(); 
+  
+  face.strokeStyle="#D65CFF";
+  
+  //face.moveTo(116+SLIDE,104+SCALE); //eye line
+  //face.bezierCurveTo(150+SLIDE,125+SCALE,250+SLIDE,125+SCALE,284+SLIDE,104+SCALE);
+  
+  // face.moveTo(100+SLIDE,104+SCALE);//left eyebrow to triad
+     //face.lineTo(180+SLIDE, 114+SCALE);
+	 // face.lineTo(60+SLIDE, 20+SCALE); 
+	//  face.lineTo(113+SLIDE, 100+SCALE);
+	 
+	   // face.moveTo(300+SLIDE,104+SCALE);//right eyebrow to triad
+     //face.lineTo(220+SLIDE, 114+SCALE);
+	// face.lineTo(340+SLIDE, 20+SCALE);
+	 // face.lineTo(287+SLIDE, 100+SCALE);
+  
+
+  
+  
+  //face.moveTo(200,1); //centre line
+  //face.lineTo(200,400);
+  
+  /*
+  face.moveTo(125+SLIDE,111+SCALE);//left eye lid
+  face.bezierCurveTo(160+SLIDE,135+SCALE,170+SLIDE,130+SCALE,185+SLIDE,120+SCALE);
+  
+ 
+  
+  face.moveTo(150+SLIDE,116+SCALE);//left eye 
+  face.bezierCurveTo(155+SLIDE,125+SCALE,165+SLIDE,125+SCALE,170+SLIDE,118+SCALE);
+  
+    face.moveTo(275+SLIDE,111+SCALE);//right eye lid
+face.bezierCurveTo(240+SLIDE,135+SCALE,230+SLIDE,130+SCALE,215+SLIDE,120+SCALE);
+  
+
+  
+  face.moveTo(250+SLIDE,116+SCALE);//right eye 
+  face.bezierCurveTo(245+SLIDE,125+SCALE,235+SLIDE,125+SCALE,230+SLIDE,118+SCALE);
+  
+  */
+  face.moveTo(184+SLIDE,120+SCALE); 
+  face.lineTo(193+SLIDE, 131+SCALE); //left nose
+  face.lineTo(190+SLIDE, 160+SCALE);
+  face.lineTo(200+SLIDE, 170+SCALE);
+  
+  face.moveTo(190+SLIDE,160+SCALE); //left nostroll
+  face.lineTo(180+SLIDE,160+SCALE);
+  face.lineTo(191+SLIDE,154+SCALE);
+  
+   face.moveTo(180+SLIDE,160+SCALE); //left lower nostrol
+  face.lineTo(200+SLIDE,170+SCALE);
+  
+  face.moveTo(216+SLIDE,120+SCALE); 
+   face.lineTo(207+SLIDE, 131+SCALE); //right nose
+  face.lineTo(210+SLIDE, 160+SCALE);
+  face.lineTo(200+SLIDE,170+SCALE);
+
+  
+  face.moveTo(210+SLIDE,160+SCALE); //right nostroll
+  face.lineTo(220+SLIDE,160+SCALE);
+  face.lineTo(209+SLIDE,154+SCALE);
+  
+  face.moveTo(220+SLIDE,160+SCALE); //right lower nostrol
+  face.lineTo(200+SLIDE,170+SCALE);
+  
+
+  
+ face.moveTo(200+SLIDE,140+SCALE); //outer triad
+  face.lineTo(170+SLIDE, 100+SCALE);
+   face.lineTo(230+SLIDE, 100+SCALE);
+  face.lineTo(200+SLIDE, 140+SCALE);
+  
+  /* face.moveTo(200,145); //outer triad drop shadow
+  face.lineTo(170, 100);
+   face.lineTo(230, 100);
+   face.lineTo(200, 145); */
+  
+   face.moveTo(200+SLIDE,130+SCALE); //inner triad
+  face.lineTo(180+SLIDE, 105+SCALE);
+   face.lineTo(220+SLIDE, 105+SCALE);
+  face.lineTo(200+SLIDE, 130+SCALE);
+  
+  //face.lineWidth =0.6; 
+  
+      //  face.moveTo(280+SLIDE,111+SCALE);//outer right eye lid
+//face.bezierCurveTo(240+SLIDE,140+SCALE,230+SLIDE,135+SCALE,210+SLIDE,120+SCALE);
+
+ //face.moveTo(280+SLIDE,111+SCALE);// right eye lid
+ //face.lineTo(240+SLIDE,124+SCALE); 
+ //face.lineTo(210+SLIDE,120+SCALE);
+ 
+ // face.moveTo(274+SLIDE,120+SCALE);//outer right eye lid
+ //face.lineTo(240+SLIDE,129+SCALE); 
+// face.lineTo(216+SLIDE,120+SCALE);
+ 
+  // face.moveTo(274+SLIDE,120+SCALE);//upper right eye lid
+ //face.lineTo(240+SLIDE,100+SCALE); 
+ //face.lineTo(216+SLIDE,120+SCALE);
+ 
+  // face.moveTo(274+SLIDE,120+SCALE);//actual right eye lid
+ //face.lineTo(240+SLIDE,110+SCALE); 
+ //face.lineTo(216+SLIDE,120+SCALE);  
+ 
+   // face.moveTo(254+SLIDE,115+SCALE);//right eye ball
+// face.lineTo(245+SLIDE,120+SCALE); 
+ //face.lineTo(235+SLIDE,120+SCALE);  
+ // face.lineTo(226+SLIDE,115+SCALE);  
+ 
+  
+   //  face.moveTo(120+SLIDE,111+SCALE);//outer left eye lid 
+ // face.bezierCurveTo(160+SLIDE,140+SCALE,170+SLIDE,135+SCALE,190+SLIDE,120+SCALE);
+  
+  //face.moveTo(120+SLIDE,111+SCALE);// left eye lid 
+  //face.lineTo(160+SLIDE,124+SCALE);
+  //face.lineTo(190+SLIDE,120+SCALE); 
+  
+    //face.moveTo(126+SLIDE,120+SCALE);//outer left eye lid 
+  //face.lineTo(160+SLIDE,129+SCALE);
+ // face.lineTo(184+SLIDE,120+SCALE); 
+  
+    //  face.moveTo(126+SLIDE,120+SCALE);//upper left eye lid 
+ // face.lineTo(160+SLIDE,100+SCALE);
+//  face.lineTo(184+SLIDE,120+SCALE); 
+  
+   // face.moveTo(126+SLIDE,120+SCALE);//actual left eye lid 
+ // face.lineTo(160+SLIDE,110+SCALE);
+ // face.lineTo(184+SLIDE,120+SCALE); 
+  
+  // face.moveTo(174+SLIDE,115+SCALE);//left eye ball
+ //face.lineTo(165+SLIDE,120+SCALE); 
+ //face.lineTo(155+SLIDE,120+SCALE);  
+ // face.lineTo(146+SLIDE,115+SCALE);  
+  
+    face.moveTo(162+SLIDE,174+SCALE); //left cheek line
+	face.lineTo(180+SLIDE,160+SCALE); 
+	
+	//    face.moveTo(162+SLIDE,174+SCALE); //left cheek line crease
+	//face.lineTo(180+SLIDE,155+SCALE); 
+	//face.lineTo(190+SLIDE,155+SCALE); 
+	
+	 face.moveTo(238+SLIDE,174+SCALE); //right cheek line
+	face.lineTo(220+SLIDE,160+SCALE); 
+	
+	//	 face.moveTo(238+SLIDE,174+SCALE); //right cheek line crease
+	//face.lineTo(220+SLIDE,155+SCALE); 
+	//	face.lineTo(210+SLIDE,155+SCALE); 
+		
+		//	face.moveTo(180+SLIDE,155+SCALE); //left cheek to eye structure
+	//face.lineTo(160+SLIDE,128+SCALE); 
+		
+//face.moveTo(220+SLIDE,155+SCALE); //right cheek to eye structure
+		//face.lineTo(240+SLIDE,128+SCALE); 
+  
+  
+    face.moveTo(162+SLIDE,174+SCALE); //upper mouth line
+  face.bezierCurveTo(170+SLIDE,180+SCALE,230+SLIDE,180+SCALE,238+SLIDE,174+SCALE);
+  
+   face.moveTo(165+SLIDE,175+SCALE); //mouth line bottom
+  face.bezierCurveTo(190+SLIDE,Math.floor(Math.random()*25+180)+SCALE,210+SLIDE,Math.floor(Math.random()*25+180)+SCALE,235+SLIDE,175+SCALE);
+    
+    
+        face.moveTo(200+SLIDE,231+SCALE); //head shape
+    face.lineTo(340+SLIDE, 20+SCALE);
+    
+       face.moveTo(200+SLIDE,231+SCALE); //head shape
+   face.lineTo(60+SLIDE, 20+SCALE);
+	
+	  // face.moveTo(200,231); //outer head shape
+   // face.lineTo(100,104);
+    
+       // face.moveTo(200,231); //outer head shape
+    //face.lineTo(300,104);
+	
+	face.moveTo(60+SLIDE, 20+SCALE); //forehead
+	face.lineTo(200+SLIDE,70);
+	face.lineTo(340+SLIDE, 20+SCALE);
+	
+	//face.moveTo();
+	//face.lineTo();
+	
+
+  
+
+  face.stroke(); //exicute all co-ords.
+  
+  
+  
+ 
+        if(stop===true||COUNT.length===4){
+//return;
+//alert(stop); //boolean should be true
+clearInterval(clearFace);
+clearInterval(faceTimer); //this could be key in solving the puzzle. 
+document.getElementById('face').getContext('2d').clearRect(0, 0, 700, 750);
+
+
+//alert(stop); 
+
+//face.stroke(); 
+
+		face.stroke(); //need to make fresh co-ordinates via a fresh context?
+
+ //COUNT.length=0; 
+
+//reset the length or index of COUNT to 0
+
+
+
+   
+   
+
+//var stop = false; //tamper with this for varied results.  
+//return; 
+}
+
+
+		
+		
+
+		
+
+
+
+
+
+
+  
+
+
+    
+  }; //end of face anim
+  
+//edit in the below function to get the freeze effect working. 
+ 
+    var clearFace = setInterval(function(){myTimer()}, 56);
+ 
+ function myTimer(){
+   document.getElementById('face').getContext('2d').clearRect(0, 0, 700, 750);
+   
+   if(stop===true){
+//return; 
+clearInterval(clearFace); //this section needs tweaking. 
+}
+	
+};
+
+//setInterval(clearFace,56); 
+    
+
+  
+ 
+
+
+
+
+
+}; //end of parent function initiate() 
+
+
+
+    var reset = function(){
+  
+ 
+  //clearInterval(faceTimer); 
+   //delete initiate(); 
+    stop = true; 
+    
+  }; 
+  
+  
+  
+  
+  /*var freeze = function(){
+  
+  //this activates the roll out content boxes aswell onclick. 
+  stop = false; 
+  document.getElementById('face').getContext('2d').clearRect(0, 0, 700, 750);
+  clearInterval(faceTimer);
+  //alert("ahhh"); 
+  
+  };
+
+*/
+
+
+
+
+
+
+
+
+	
+	</script>
+	
+	
+	
+	
+	<!-- Content script -->
+	
+	
+	
+<script>
+//where to begin. 
+//wrap code in functions and load them up via an DOM event handler. 
+//aim is too eliminate the function when the array collects 30 elements/data types. 
+
+
+
+
+//window.onload = function(){
+var contentScript = function(x){
+
+
+var GATHER = []; //this array has global scope. because it's..
+//been declared using var outside of a function. DECLARE GLOBALS WITH UPPERCASE
+//var create = document.createElement("div").setAttribute("id","posts");
+
+
+
+var holder = function(){
+
+
+var contGeneration = setInterval(function(){invent()},200); 
+var invent = function(){
+
+
+
+var d = document.createElement("div"); 
+ d.setAttribute("id" , "contentBoxes")
+  d.style.width="700px"; 
+ // d.style.height="100px"; 
+ // d.style.borderRight="1px solid #FF70DB"; 
+   //d.style.borderLeft="1px solid #FF70DB"; 
+  //  d.style.borderBottom="1px solid #FF70DB"; 
+  d.style.cssFloat="left"; 
+  d.style.color="#CA7CE6"; 
+  d.style.textAlign="center"; 
+ // d.style.clear="both"; 
+var random = Math.random();    
+
+  inc = 1; 
+GATHER.push(inc); 
+
+var contentBio = ["Bogus",
+"<h2>Origin</h2>",
+ "<P> Hello, I'm an aspiring front end web developer from Cardiff. I've been coding for about a year and a half as of this entry. I started on codecademy completing the sections on HTML, CSS and JavaScript then packed my bags for the classroom at chapter Arts studying two modules with Ffotogallery.</p> ",
+ "<h2>Past, Present and Future </h2>",
+ "<p>Currently I'm experimenting with HTML5 and the algorithmic, dynamic elephant that is JavaScript. As I move into the future I aim to expand and add to my current set of coding languages and design skills. </p>",
+ "<p>In the past I studied Art and Design and picked up a Foundation Degree, This has proved advantageous when married with my new found coding knowledge. I continue to sharpen and build upon these skills as I look for my break into the web industry.  </P>",
+ "<P>A Chapter Arts/Ffotogallery project</P>"
+]; 
+
+var contentPhil = ["Bogus",
+ "<h2> Philosophy </h2>",
+ "<p> I use three core languages to achieve the results I'm seeking. My weapons of choice are HTML5, CSS and JavaScript. I am always looking to expand my knowledge and add to that repertoire more languages. I'm also keen on generative processes and algorithmic design in personal projects.</p>",
+ "<p> I am fascinated with the idea of interactivity within the browser, and it's potencial to talk to the user, be that with visual feedback or dialogue, which is what the motivation for this site was in particular. </p>",
+ "<p> I believe in building a connection with the user. </p>",
+ "<P>A Chapter Arts/Ffotogallery project</P>"
+]; 
+
+var contentWork = ["Bogus",
+ "<h2> Skill set </h2>", 
+ "<p>I have experience and ability in illustration, code and design which are the core ingredients needed for front end development. I'm currently looking for my first break into the web industry as a Junior.  </p>",
+ "<p>I carry the major front end languages which I then fuse with my Art and Design ability and knowledge. I go to Life drawing classes on a weekly basis to stay creatively in tune. I have been using Photoshop for years now on numerous courses, while recently delving into Illustrator gaining an interest in vector based Art and Design.    </p>",
+ "<p>I am familiar with grid systems, colour and layout composition, typefaces and recent trends within the web environment.  </p>",
+  "<P>A Chapter Arts/Ffotogallery project</P>"
+]; 
+
+var contentMusic = ["Bogus",
+ "<h2> Artists </h2>", 
+  "<p> Gustavo Torrez, Olly Moss, Cory Schmitz, Salvador Dali, Walter Disney </p>", 
+   "<h2> Coders </h2>", 
+     "<p> Andrew Hoyer, Brendan Eich </p>", 
+   "<h2> Musicians </h2>",
+     "<p>Vangelis, C418 </p>", //provide wiki links
+  "<P>A Chapter Arts/Ffotogallery project</P>"
+]; 
+
+var contentIllustration = ["Bogus",
+"<h2> Personal Reflections</h2>", 
+ "<h2> HTML</h2>", 
+ "<p>HTML and CSS revolve around the box model, where everything on the page can be visualised as a box that occupies a space. We use the appropriate tags for the relevant purposes to keep everything semanticly clean.  </p>",
+  "<h2> CSS </h2>",
+  "<p>in CSS the style sheet gets scanned in cascading fasion hense the name. We use selectors and declarations to set our styles and within those we have properties and their values.  </p>",
+   "<h2> JavaScript </h2>",
+    "<p> JavaScript ECMAscript5-6 is a vast multi-paradigm language, to remember every keyword requires god like power but to learn it's fundamentals and runaway with the rest is far easier.  It's crucial to steal snippets of syntax and keywords from various sources such as w3schools while applying and experimenting with prototypes, a JavaScript interpreter in the browser runs our script. </p>",
+  "<P>An environment should make meaning transparent, so the learner can concentrate on high-level concepts, not syntactical vocabulary, this is the goal. </P>",
+    "<P>A Chapter Arts/Ffotogallery project</P>"
+]; 
+
+var contentLibrary = ["Bogus",
+ "<h2> Get in touch</h2>", 
+ "<p>Tweet me: @man_zoolu, Email me: Chris_pkm@hotmail.co.uk  </p>",
+    "<P>A Chapter Arts/Ffotogallery project</P>"
+]; 
+
+if(x===0){
+d.innerHTML = "<p>A Chapter Arts/Ffotogallery project</p>"; 
+
+clearInterval(contGeneration); 
+GATHER.length = 0; 
+}
+
+if(x===1){
+ //d.innerHTML = GATHER.length + contentBio[GATHER.length]; 
+ d.innerHTML = contentBio[GATHER.length]; 
+ 
+ if(contentBio.length===GATHER.length+1){
+clearInterval(contGeneration); 
+GATHER.length = 0; 
+}
+ }
+ 
+ if(x===2){
+ d.innerHTML = contentPhil[GATHER.length]; 
+ 
+ if(contentPhil.length===GATHER.length+1){
+clearInterval(contGeneration); 
+GATHER.length = 0; 
+}
+ }
+ 
+  if(x===3){
+ d.innerHTML = contentWork[GATHER.length]; 
+ 
+ if(contentWork.length===GATHER.length+1){
+clearInterval(contGeneration); 
+GATHER.length = 0; 
+}
+ }
+ 
+  if(x===4){
+ d.innerHTML = contentMusic[GATHER.length]; 
+ 
+ if(contentMusic.length===GATHER.length+1){
+clearInterval(contGeneration); 
+GATHER.length = 0; 
+}
+ }
+ 
+  if(x===5){
+ d.innerHTML = contentIllustration[GATHER.length]; 
+ 
+ if(contentIllustration.length===GATHER.length+1){
+clearInterval(contGeneration); 
+GATHER.length = 0; 
+}
+ }
+ 
+  if(x===6){
+ d.innerHTML = contentLibrary[GATHER.length]; 
+ 
+ if(contentLibrary.length===GATHER.length+1){
+clearInterval(contGeneration); 
+GATHER.length = 0; 
+}
+ }
+ 
+//document.body.appendChild(d); //appendChild?
+document.getElementById("roll-out").appendChild(d); 
+
+
+
+
+
+}; //end of invent. 
+
+
+
+
+
+
+}; //end of holder function. 
+
+
+document.getElementById("roll-out").innerHTML=holder(); //this seems to make the whole script work.. is this where the undefined bug is coming from?
+
+
+
+}; //end of king function
+</script>
+
+
+
+
+
+
+
+
+<!-- speech generation script start -->
+
+<script>
+
+//var REQUEST = prompt('Greetings, Whats your name?');
+	//var USERNAME = REQUEST; //global variables declared in capitals. 
+
+
+
+var alter = function(y){
+
+//var i; 
+//obtain.push(i); 
+
+
+//var printer; 
+
+//var rand = Math.floor(Math.random()*10); 
+
+
+
+
+
+var obtain = []; //this array has global scope.
+
+ 
+ 
+ 
+ //dialogue for Intro start --------------------------------------------
+  
+  if(y===0){ 
+  
+var dialogueEnd0 = setInterval(function(){rollout0()},150);
+
+ 
+
+//var rollout1=function(){
+
+function rollout0(){
+
+
+var i; 
+obtain.push(i); 
+
+
+if(obtain.length==1){
+var printer = "<p>To </p>";  
+}
+
+if(obtain.length==2){
+var printer = "<p>To navigate <br /> </p>";   //the printer var should get over-written each time it assigns a new value.
+}
+
+if(obtain.length==3){
+var printer = "<p>To navigate, <br /> </p>";
+}
+
+if(obtain.length==4){
+var printer = "<p> To navigate, <br />ponder</p>";
+}
+
+if(obtain.length==5){
+var printer = "<p>To navigate, <br /> ponder over</p>";
+}
+
+if(obtain.length==6){
+var printer = "<p>To navigate, <br /> ponder over the </p>";
+}
+
+if(obtain.length>=7){
+var printer = "<p>To navigate, <br /> ponder over the links.</p>";
+clearInterval(dialogueEnd0); 
+obtain.length=0; 
+}
+
+
+
+
+
+var targetHeader = document.getElementById('speechSwitch');
+var header = targetHeader.innerHTML =printer; //.toUpperCase(); 
+
+};
+
+} //end of if statement
+
+//Dialogue for Intro end ------------------------------------------
+ 
+ 
+ 
+ 
+ 
+  
+//dialogue for bio start --------------------------------------------
+  
+  if(y===1){ 
+  
+var dialogueEnd1 = setInterval(function(){rollout1()},150);
+
+ 
+
+//var rollout1=function(){
+
+function rollout1(){
+
+
+var i; 
+obtain.push(i); 
+
+
+if(obtain.length==1){
+var printer = "<p>So </p>";  
+}
+
+if(obtain.length==2){
+var printer = "<p>So here's <br /></p>";   //the printer var should get over-written each time it assigns a new value.
+}
+
+if(obtain.length==3){
+var printer = "<p>So here's <br /> The  </p>";
+}
+
+if(obtain.length==4){
+var printer = "<p>So here's <br /> The story </p>";
+}
+
+if(obtain.length==5){
+var printer = "<p> So here's <br /> The story so</p>";
+}
+
+if(obtain.length>=6){
+var printer = "<p> So here's <br /> The story so far.</p>";
+clearInterval(dialogueEnd1); 
+obtain.length=0; 
+}
+
+
+
+
+
+
+
+
+
+var targetHeader = document.getElementById('speechSwitch');
+var header = targetHeader.innerHTML =printer; //.toUpperCase(); 
+
+};
+
+} //end of if statement
+
+//Dialogue for Bio end ------------------------------------------
+
+
+
+
+
+//dialogue for Philosophy start --------------------------------------------
+  
+  if(y===2){ 
+  
+var dialogueEnd2 = setInterval(function(){rollout2()},150);
+
+ 
+
+//var rollout1=function(){
+
+function rollout2(){
+
+
+var i; 
+obtain.push(i); 
+
+
+
+
+if(obtain.length==1){
+var printer = "<p>See <br /> </p>";
+}
+
+if(obtain.length==2){
+var printer = "<p>See what <br /> </p>";
+}
+
+if(obtain.length==3){
+var printer = "<p>See what <br /> makes </p>";
+}
+
+if(obtain.length==4){
+var printer = "<p>See what <br /> makes me  </p>";
+}
+
+if(obtain.length>=5){
+var printer = "<p>See what <br /> makes me tick. </p>";
+clearInterval(dialogueEnd2); 
+obtain.length=0; 
+}
+
+
+
+
+
+
+
+
+
+var targetHeader = document.getElementById('speechSwitch');
+var header = targetHeader.innerHTML =printer; //.toUpperCase(); 
+
+};
+
+} //end of if statement
+
+//Dialogue for Philosophy end ------------------------------------------
+
+
+
+
+
+
+
+//dialogue for Skills start --------------------------------------------
+  
+  if(y===3){ 
+  
+var dialogueEnd3 = setInterval(function(){rollout3()},150);
+
+ 
+
+//var rollout1=function(){
+
+function rollout3(){
+
+
+var i; 
+obtain.push(i); 
+
+
+
+if(obtain.length==1){
+var printer = "<p> Jack<br /></p>";
+}
+
+if(obtain.length==2){
+var printer = "<p>Jack of<br /> </p>";
+}
+
+if(obtain.length==3){
+var printer = "<p>Jack of all<br /> </p>";
+}
+
+if(obtain.length==4){
+var printer = "<p>Jack of all<br /> trades,</p>";
+}
+
+if(obtain.length==5){
+var printer = "<p>Jack of all<br /> trades, master </p>";
+}
+
+if(obtain.length==6){
+var printer = "<p>Jack of all<br /> trades, master of </p>";
+}
+
+if(obtain.length>=7){
+var printer = "<p>Jack of all <br /> trades, master of some.</p>";
+clearInterval(dialogueEnd3); 
+obtain.length=0; 
+}
+
+
+
+
+
+
+
+var targetHeader = document.getElementById('speechSwitch');
+var header = targetHeader.innerHTML =printer; //.toUpperCase(); 
+
+};
+
+} //end of if statement
+
+//Dialogue for Skills end ------------------------------------------
+
+
+
+
+
+
+//dialogue for Tastes start --------------------------------------------
+  
+  if(y===4){ 
+  
+var dialogueEnd4 = setInterval(function(){rollout4()},150);
+
+ 
+
+//var rollout1=function(){
+
+function rollout4(){
+
+
+var i; 
+obtain.push(i); 
+
+
+if(obtain.length==1){
+var printer = "<p>A </p>";  
+}
+
+if(obtain.length==2){
+var printer = "<p>A man <br /> </p>";   //the printer var should get over-written each time it assigns a new value.
+}
+
+if(obtain.length==3){
+var printer = "<p>A man of <br /> </p>";
+}
+
+if(obtain.length==4){
+var printer = "<p>A man of <br />many</p>";
+}
+
+if(obtain.length>=5){
+var printer = "<p>A man of <br />many influences.</p>";
+clearInterval(dialogueEnd4); 
+obtain.length=0; 
+}
+
+
+
+
+
+var targetHeader = document.getElementById('speechSwitch');
+var header = targetHeader.innerHTML =printer; //.toUpperCase(); 
+
+};
+
+} //end of if statement
+
+//Dialogue for Tastes end ------------------------------------------
+
+
+
+
+//dialogue for Library start --------------------------------------------
+  
+  if(y===5){ 
+  
+var dialogueEnd5 = setInterval(function(){rollout5()},150);
+
+ 
+
+//var rollout1=function(){
+
+function rollout5(){
+
+
+var i; 
+obtain.push(i); 
+
+
+
+if(obtain.length==1){
+var printer = "<p>Museum <br /></p>";
+}
+
+if(obtain.length==2){
+var printer = "<p> Museum <br />of </p>";
+}
+
+if(obtain.length==3){
+var printer = "<p>Museum <br /> of the  </p>";
+}
+
+if(obtain.length>=4){
+var printer = "<p>Museum <br /> of the mind.</p>";
+clearInterval(dialogueEnd5); 
+obtain.length=0; 
+}
+
+
+
+
+
+
+var targetHeader = document.getElementById('speechSwitch');
+var header = targetHeader.innerHTML =printer; //.toUpperCase(); 
+
+};
+
+} //end of if statement
+
+//Dialogue for Library end ------------------------------------------
+
+
+
+
+//dialogue for Contact start --------------------------------------------
+  
+  if(y===6){ 
+  
+var dialogueEnd6 = setInterval(function(){rollout6()},150);
+
+ 
+
+//var rollout1=function(){
+
+function rollout6(){
+
+
+var i; 
+obtain.push(i); 
+
+
+if(obtain.length==1){
+var printer = "<p>Wanna' <br />  </p>";  
+}
+
+if(obtain.length==2){
+var printer = "<p>Wanna' get <br />  </p>";   //the printer var should get over-written each time it assigns a new value.
+}
+
+if(obtain.length==3){
+var printer = "<p>Wanna' get <br />hold </p>";
+}
+
+if(obtain.length==4){
+var printer = "<p>Wanna' get <br />hold of </p>";
+}
+
+if(obtain.length>=5){
+var printer = "<p>Wanna' get <br />hold of me?  </p>";
+clearInterval(dialogueEnd6); 
+obtain.length=0; 
+}
+
+
+
+
+
+
+
+
+
+
+var targetHeader = document.getElementById('speechSwitch');
+var header = targetHeader.innerHTML =printer; //.toUpperCase(); 
+
+};
+
+} //end of if statement
+
+//Dialogue for Contact end ------------------------------------------
+
+
+
+
+
+
+
+
+
+
+}; //end of alter(y) king function 
+
+
+
+</script>
+
+<!-- speech generation script end -->
+
+
+<script> <!-- speech indicators-->
+
+
+var indicate = function(){
+
+
+var amount = setInterval(function(){indicators()},700);
+
+
+var amountCollector = [];  
+
+
+function indicators(){
+
+var amountTracker = 0; 
+amountTracker++; 
+amountCollector.push(amountTracker); 
+
+if(amountCollector.length===1){
+clearInterval(amount); 
+}; 
+
+
+
+
+var fire = setInterval(function(){incro()},50);
+
+var collect = []; //global scope, closed functions?
+
+function incro(){
+var i = 0; 
+
+
+i++; 
+//document.getElementById("count").innerHTML=collect.length; 
+collect.push(i)
+
+var spawn = document.createElement("div"); //.setAttribute("id","imageCube");
+spawn.style.width="5px"; 
+spawn.style.height="5px"; 
+spawn.style.cssFloat="left"; 
+spawn.style.backgroundColor="#E18AFF"; 
+spawn.style.margin="5px"; 
+document.getElementById("squareContainer").appendChild(spawn);
+
+if(collect.length===5){
+clearInterval(fire);
+var dad = document.getElementById("squareContainer");
+while(dad.firstChild){ //keeps going for the length of the child divs that we're created. 
+    dad.removeChild(dad.firstChild);
+	collect.length = 0; 
+	i = 0; 
+}
+
+}
+
+}; 
+
+}; //end of indicators function
+
+}; 
+
+</script>
+
+
+    
+  </body>
+  
+</html>
